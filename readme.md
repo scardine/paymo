@@ -9,7 +9,7 @@ your clients. Before I started using it, I was constantly forgetting
 to bill some customer for some of my time, so it rocks my universe. 
 I would recomend it for any freelancer or small consulting business.
 
-If you want to check Paymo, use my referal link:
+If you want to check Paymo, use my referal link (shameless plug):
 
   - [http://www.paymo.biz/](http://www.paymo.biz/?utm_source=7b76bTP02Xee)
 
@@ -106,7 +106,5 @@ Example:
 
 ## Caveats
 
-  - The help strings are automatically scraped from the docs URL. If
-    the HTML format changes, most likely this will stop working.
   - Since English is not my native idiom I sound like Tarzan most of
     the time.
