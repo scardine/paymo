@@ -7,7 +7,7 @@ This module wraps the Paymo API.
 Paymo is cloud based application for tracking your time and invoice
 your clients. Before I started using it, I was constantly forgetting
 to bill some customer for some of my time, so it rocks my universe. 
-I would recomend it for any freelancer or small consulting business.
+It is a must-have for freelancers, contractors and consulting business.
 
 If you want to check Paymo, use my referal link (shameless plug):
 
