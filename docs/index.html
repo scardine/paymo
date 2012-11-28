@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Paymo API Wrapper for Python</title>
+</head>
+<body>
+	<h1 id="paymo-api-wrapper-for-python">PAYMO API WRAPPER FOR PYTHON</h1>
+<p>This module wraps the Paymo API.</p>
+<h2 id="what-is-paymo">WHAT IS PAYMO?</h2>
+<p>Paymo is cloud based application for tracking your time and invoice your clients. Before I started using it, I constantly forgot to bill some customer for some of my time, so it rocks my universe. I would recommend it for any freelancer or small consulting business.</p>
+<p>If you want to check Paymo, use my referal link:</p>
+<pre><code>http://www.paymo.biz/?utm_source=7b76bTP02Xee</code></pre>
+<p>If you are using Google Apps, it integrates very nicely.</p>
+<h2 id="install">INSTALL</h2>
+<p>It is in the cheese shop, so just easy_install or pip it.</p>
+<pre><code>pip install paymo</code></pre>
+<h2 id="example-usage">EXAMPLE USAGE</h2>
+<p>Just initialize the API with your credentials and call tha API methods as standard python methods feeding parameters by name.</p>
+<p>Method and parameter names are the same documented at:</p>
+<pre><code>http://api.paymo.biz/docs/
+
+&gt;&gt;&gt; from paymoapi import PaymoAPI
+&gt;&gt;&gt; paymo = PaymoAPI(&#39;my-paymo-api-key&#39;, &#39;my-username&#39;, &#39;my-password&#39;)
+&gt;&gt;&gt; # Now you can call apy methods like native python methods
+&gt;&gt;&gt; paymo.users.getList()
+{u&#39;status&#39;: u&#39;ok&#39;,
+ u&#39;users&#39;: {u&#39;user&#39;: [{u&#39;active&#39;: 1,
+                       u&#39;id&#39;: u&#39;65535&#39;,
+                       u&#39;realname&#39;: u&#39;Enoch Root&#39;,
+                       u&#39;username&#39;: u&#39;root@eruditorum.org&#39;},
+                      {u&#39;active&#39;: 1,
+                       u&#39;id&#39;: u&#39;65534&#39;,
+                       u&#39;realname&#39;: u&#39;Thomas A. Anderson&#39;,
+                       u&#39;username&#39;: u&#39;neo@matrix.com&#39;}]}}
+
+&gt;&gt;&gt; # you can even call help
+&gt;&gt;&gt; help(paymo.users.getList)
+Help on paymo.users.getList in paymo.users object:
+
+class paymo.users.getList(DynamicApi)
+ |  ## paymo.users.getList
+ |  
+ |  Get a list of users from the same company as the authenticated user&#39;s
+ |  company.
+ |  
+ |  
+ |  ### Authentication
+ |  
+ |  This method requires authentication .
+ |  
+ |  
+ |  ### Arguments
+ |  
+ |      api_key (Required):
+ |          Your application key. See here for more details.
+ |      auth_token (Required):
+ |          Authentication token received upon login.
+ |  
+ |  ### Example Response
+ |  
+ |  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ |  &lt;response status=&quot;ok&quot;&gt;
+ |          &lt;users&gt;
+ |                  &lt;user id=&quot;1279&quot; username=&quot;johndoe&quot; realname=&quot;John Doe&quot; active=&quot;1&quot; /&gt;
+ |                  &lt;user id=&quot;1283&quot; username=&quot;marydoe&quot; realname=&quot;Mary Doe&quot; active=&quot;0&quot; /&gt;
+ |          &lt;/users&gt;
+ |  &lt;/response&gt;
+ |  
+ |  
+ |  ### Error Codes
+ |  
+ |      101: Unknown API method:
+ |          The requested method was not found.
+ |      102: Unknown response format:
+ |          The requested response format was not found.
+ |      103: Invalid API Key:
+ |          The API key passed was not valid.
+ |      104: Invalid auth token / Login failed:
+ |          The login details or auth token passed were invalid.
+ |      105: Insufficient permissions:
+ |          The user making the method call did not have the required permissions.
+ |      106: Service currently unavailable:
+ |          The service is temporarily unavailable.
+ |      107: Too many requests for this API key:
+ |          The application has reached the limit for number of API calls during a specific time period. Wait a bit and try again.
+ |
+&gt;&gt;&gt; paymo.auth.logout()</code></pre>
+<h2 id="caveats">CAVEATS</h2>
+<p>The help strings are automatically scraped from the docs URL. If the HTML format changes, most likely this will stop working.</p>
+</body>
+</html>
