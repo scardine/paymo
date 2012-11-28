@@ -7,13 +7,14 @@ This module wraps the Paymo API.
 Paymo is cloud based application for tracking your time and invoice
 your clients. Before I started using it, I was constantly forgetting
 to bill some customer for some of my time, so it rocks my universe. 
-I would recomend it for any freelancer or small consulting business.
+It is a must-have for freelancers, contractors and consulting business.
 
-If you want to check Paymo, use my referal link (shameless plug):
+If you want to give it a check, use my referal link (shameless plug):
 
   - [http://www.paymo.biz/](http://www.paymo.biz/?utm_source=7b76bTP02Xee)
 
-If you are using Google Apps, it integrates very nicely.
+It is free for 1 user and if you are using Google Apps for your domain,
+it integrates very nicely.
 
 ## Install
 
