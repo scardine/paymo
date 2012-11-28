@@ -5,9 +5,9 @@ This module wraps the Paymo API.
 ## What is Paymo?
 
 Paymo is cloud based application for tracking your time and invoice
-your clients. Before I started using it, I constantly forgot to bill
-some customer for some of my time, so it rocks my universe. I would 
-recomend it for any freelancer or small consulting business.
+your clients. Before I started using it, I was constantly forgettig
+to bill some customer for some of my time, so it rocks my universe. 
+I would recomend it for any freelancer or small consulting business.
 
 If you want to check Paymo, use my referal link:
 
