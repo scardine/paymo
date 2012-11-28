@@ -57,8 +57,9 @@ def make_help(data):
         response += u"{0[code]}: {0[message]}\n    {0[_content]}\n\n"\
                     .format(error)
 
-    response += u"{0}{1[example-response][_content]}"\
-                    .format(make_title('Example response', '-'), method)
+    if method['example-response']['_content']:
+        response += u"{0}{1[example-response][_content]}"\
+                        .format(make_title('Example response', '-'), method)
     return response
 
 class PaymoAPI(object):
@@ -128,6 +129,7 @@ class PaymoAPI(object):
             self.auth.login(username=login, password=password,
                                     extended_info=extended_info)
         self.api_method_list = self.get_methods()
+        self.api_method_groups = self.get_method_groups()
 
     def __getattr__(self, name):
         """Magic stuff to map API methods."""
@@ -135,7 +137,15 @@ class PaymoAPI(object):
             return getattr(super(PaymoAPI, self), name)
         if name == 'api_method_list':
             return self.get_methods()
-        return self.DynamicApi(self, '.'.join(('paymo', name)))
+        if name == 'api_method_groups':
+            return self.get_method_groups()
+        if name not in self.api_method_groups:
+            raise RuntimeError('Invalid method group: {0}'.format(name))
+        typename = '.'.join(('paymo', name))
+        ApiMethod = type(typename, (self.DynamicApi,),
+            { '__doc__':
+              make_title('Dummy object for API group "{0}"'.format(name)) })
+        return ApiMethod(self, typename)
 
     def __repr__(self):
         return '<Paymo API auth={0}>'.format(self.__auth_token)
@@ -160,6 +170,12 @@ class PaymoAPI(object):
             raise RuntimeError('Error {code}: {message}'.format(**r['error']))
         return [ m['_content'] for m in r['methods']['method'] ]
 
+    def get_method_groups(self):
+        method_groups = set()
+        for method in self.api_method_list:
+            (prefix, group, name) = method.split('.')
+            method_groups.add(group)
+        return method_groups
 
 #if __name__ == '__main__':
 #    paymo = PaymoAPI(raw_input('API Key:'), raw_input('Username:'), raw_input('password'))
