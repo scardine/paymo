@@ -35,10 +35,10 @@ Method and parameter names are the same documented at:
 
   - [http://api.paymo.biz/docs/](http://api.paymo.biz/docs/)
 
-    >>> from paymoapi import PaymoAPI
-    >>> paymo = PaymoAPI('my-paymo-api-key', 'my-username', 'my-password')
-    >>> # Now you can call apy methods like native python methods
-    >>> paymo.users.getList()
+    `>>>` from paymoapi import PaymoAPI
+    `>>>` paymo = PaymoAPI('my-paymo-api-key', 'my-username', 'my-password')
+    `>>> #` Now you can call apy methods like native python methods
+    `>>>` paymo.users.getList()
     {u'status': u'ok',
      u'users': {u'user': [{u'active': 1,
                            u'id': u'65535',
@@ -49,8 +49,8 @@ Method and parameter names are the same documented at:
                            u'realname': u'Thomas A. Anderson',
                            u'username': u'neo@matrix.com'}]}}
     
-    >>> # you can even call help
-    >>> help(paymo.users.getList)
+    `>>>` # you can even call help
+    `>>>` help(paymo.users.getList)
     Help on paymo.users.getList in paymo.users object:
 
     class paymo.users.getList(DynamicApi)
@@ -100,7 +100,7 @@ Method and parameter names are the same documented at:
      |      107: Too many requests for this API key:
      |          The application has reached the limit for number of API calls during a specific time period. Wait a bit and try again.
      |
-    >>> paymo.auth.logout()
+    `>>>` paymo.auth.logout()
 
 ## Caveats
 
