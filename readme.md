@@ -1,6 +1,13 @@
 # Paymo API Wrapper for Python
 
-This module wraps the Paymo API.
+This module wraps the Paymo API. It has some nice features:
+
+  - the API methods are dynamically generated using reflection, 
+    so any future API method will be automatically added
+  - the calls are identical, but you can omit the credentials 
+    for convenience
+  - the docstrings for the methods are also generated using
+    reflection, so you can `help(paymo.group.method)`
 
 ## What is Paymo?
 
