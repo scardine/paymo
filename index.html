@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Paymo.py : Paymo API Wrapper for Python" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Paymo.py</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/scardine/paymo">View on GitHub</a>
+
+          <h1 id="project_title">Paymo.py</h1>
+          <h2 id="project_tagline">Paymo API Wrapper for Python</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/scardine/paymo/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/scardine/paymo/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Paymo API Wrapper for Python</h1>
+
+<p>This module wraps the Paymo API. It has some nice features:</p>
+
+<ul>
+<li>the API methods are dynamically generated using reflection, 
+so any future API method will be automatically added</li>
+<li>the calls are identical, but you can omit the credentials 
+for convenience</li>
+<li>the docstrings for the methods are also generated using
+reflection, so you can <code>help(paymo.group.method)</code>
+</li>
+</ul><h2>What is Paymo?</h2>
+
+<p>Paymo is cloud based application for tracking your time and invoice
+your clients. Before I started using it, I was constantly forgetting
+to bill some customer for some of my time, so it rocks my universe. 
+It is a must-have for freelancers, contractors and consulting business.</p>
+
+<p>If you want to give it a check, use my referal link (shameless plug):</p>
+
+<ul>
+<li><a href="http://www.paymo.biz/?utm_source=7b76bTP02Xee">http://www.paymo.biz/</a></li>
+</ul><p>It is free for 1 user and if you are using Google Apps for your domain,
+it integrates very nicely.</p>
+
+<h2>Install</h2>
+
+<p>It is in the chese shop, so just easy_instal or pip it.</p>
+
+<pre><code>pip install paymo
+</code></pre>
+
+<h2>Contribute</h2>
+
+<p>Just fork it and send pull requests.</p>
+
+<h2>Example Usage</h2>
+
+<p>Just initialize the API with your credentials and call tha API
+methods as standard python methods feeding parameters by name.</p>
+
+<p>Method and parameter names are the same documented at:</p>
+
+<ul>
+<li><a href="http://api.paymo.biz/docs/">http://api.paymo.biz/docs/</a></li>
+</ul><p>Example:</p>
+
+<pre><code>&gt;&gt;&gt; from paymoapi import PaymoAPI
+&gt;&gt;&gt; paymo = PaymoAPI('my-paymo-api-key', 'my-username', 'my-password')
+&gt;&gt;&gt; # Now you can call apy methods like native python methods
+&gt;&gt;&gt; paymo.users.getList()
+{u'status': u'ok',
+ u'users': {u'user': [{u'active': 1,
+                       u'id': u'65535',
+                       u'realname': u'Enoch Root',
+                       u'username': u'root@eruditorum.org'},
+                      {u'active': 1,
+                       u'id': u'65534',
+                       u'realname': u'Thomas A. Anderson',
+                       u'username': u'neo@matrix.com'}]}}
+
+&gt;&gt;&gt; # you can even call help
+&gt;&gt;&gt; help(paymo.users.getList)
+Help on paymo.users.getList in paymo.users object:
+
+class paymo.users.getList(DynamicApi)
+ |  ## paymo.users.getList
+ |  
+ |  Get a list of users from the same company as the authenticated user's
+ |  company.
+ |  
+ |  
+ |  ### Authentication
+ |  
+ |  This method requires authentication .
+ |  
+ |  
+ |  ### Arguments
+ |  
+ |      api_key (Required):
+ |          Your application key. See here for more details.
+ |      auth_token (Required):
+ |          Authentication token received upon login.
+ |  
+ |  ### Example Response
+ |  
+ |  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ |  &lt;response status="ok"&gt;
+ |          &lt;users&gt;
+ |                  &lt;user id="1279" username="johndoe" realname="John Doe" active="1" /&gt;
+ |                  &lt;user id="1283" username="marydoe" realname="Mary Doe" active="0" /&gt;
+ |          &lt;/users&gt;
+ |  &lt;/response&gt;
+ |  
+ |  
+ |  ### Error Codes
+ |  
+ |      101: Unknown API method:
+ |          The requested method was not found.
+ |      102: Unknown response format:
+ |          The requested response format was not found.
+ |      103: Invalid API Key:
+ |          The API key passed was not valid.
+ |      104: Invalid auth token / Login failed:
+ |          The login details or auth token passed were invalid.
+ |      105: Insufficient permissions:
+ |          The user making the method call did not have the required permissions.
+ |      106: Service currently unavailable:
+ |          The service is temporarily unavailable.
+ |      107: Too many requests for this API key:
+ |          The application has reached the limit for number of API calls during a 
+ |          specific time period. Wait a bit and try again.
+ |
+&gt;&gt;&gt; paymo.auth.logout()
+</code></pre>
+
+<h2>Caveats</h2>
+
+<ul>
+<li>Since English is not my native idiom I sound like Tarzan most of
+the time.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Paymo.py maintained by <a href="https://github.com/scardine">scardine</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
