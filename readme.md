@@ -1,7 +1,5 @@
 # Paymo API Wrapper for Python
 
-See http://scardine.github.com/paymo/
-
 This module wraps the Paymo API. It has some nice features:
 
   - the API methods are dynamically generated using reflection, 
