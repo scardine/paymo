@@ -112,7 +112,6 @@ Example:
      |
     >>> paymo.auth.logout()
 
-## Caveats
+## Contribute
 
-  - Since English is not my native idiom I sound like Tarzan most of
-    the time.
+  - Just keep the PRs flowing.
