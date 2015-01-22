@@ -126,8 +126,9 @@ class PaymoAPI(object):
         self._api_key = api_key
         self._format = fmt
         if login:
-            self.auth.login(username=login, password=password,
+            response = self.auth.login(username=login, password=password,
                                     extended_info=extended_info)
+        self._auth_token = response['token']['_content']
         self.api_method_list = self.get_methods()
         self.api_method_groups = self.get_method_groups()
 
@@ -148,7 +149,7 @@ class PaymoAPI(object):
         return ApiMethod(self, typename)
 
     def __repr__(self):
-        return '<Paymo API auth={0}>'.format(self.__auth_token)
+        return '<Paymo API auth={0}>'.format(self._auth_token)
 
     def get_method_info(self, name):
         """Fetch help text from http://api.paymo.biz/docs/."""
