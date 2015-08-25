@@ -44,7 +44,7 @@ Method and parameter names are the same documented at:
 
 Example:
 
-    >>> from paymoapi import PaymoAPI
+    >>> from paymo import api
     >>> paymo = PaymoAPI('my-paymo-api-key', 'my-username', 'my-password')
     >>> # Now you can call apy methods like native python methods
     >>> paymo.users.getList()
